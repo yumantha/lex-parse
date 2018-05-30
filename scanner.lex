@@ -1,7 +1,8 @@
 %{
+#include <stdlib.h>
 #include "parser.tab.h"
+void yyerror(char *);
 %}
-%option nounput yylineno
 
 %%
 "/*".*"*/"		;
@@ -41,7 +42,6 @@
 
 %%
 
-int yywrap(void)
-{
+int yywrap(void){
 	return 1;
 }

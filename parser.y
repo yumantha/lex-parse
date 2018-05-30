@@ -2,8 +2,8 @@
   #include <stdio.h>
   #include <stdlib.h>
   #include <stdarg.h>
-  int yylex();
-  int yyerror();
+
+  int yylex(void);
   int yyerror (char *s);
 %}
 
@@ -71,8 +71,9 @@ arg_list            : arg_list COMMA expression | expression;
 
 int main (void) {
   yyparse();
+  return 0;
 }
 
 int yyerror (char *s) {
-  fprintf (stderr, "%s\n", s);
+  fprintf(stdout, "%s\n", s);
 }

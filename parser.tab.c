@@ -67,8 +67,8 @@
   #include <stdio.h>
   #include <stdlib.h>
   #include <stdarg.h>
-  int yylex();
-  int yyerror();
+
+  int yylex(void);
   int yyerror (char *s);
 
 #line 75 "parser.tab.c" /* yacc.c:339  */
@@ -89,7 +89,10 @@
 # define YYERROR_VERBOSE 0
 #endif
 
-
+/* In a future release of Bison, this section will be replaced
+   by #include "parser.tab.h".  */
+#ifndef YY_YY_PARSER_TAB_H_INCLUDED
+# define YY_YY_PARSER_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -145,11 +148,11 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-
+#endif /* !YY_YY_PARSER_TAB_H_INCLUDED  */
 
 /* Copy the second part of user declarations.  */
 
-#line 153 "parser.tab.c" /* yacc.c:358  */
+#line 156 "parser.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -1277,7 +1280,7 @@ yyreduce:
   switch (yyn)
     {
       
-#line 1281 "parser.tab.c" /* yacc.c:1646  */
+#line 1284 "parser.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1510,8 +1513,9 @@ yyreturn:
 
 int main (void) {
   yyparse();
+  return 0;
 }
 
 int yyerror (char *s) {
-  fprintf (stderr, "%s\n", s);
+  fprintf(stdout, "%s\n", s);
 }

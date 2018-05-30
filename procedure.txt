@@ -1,0 +1,4 @@
+1. win_bison parser.y -d
+2. flex scanner.lex
+3. gcc -o scanner.out lex.yy.c -L "C:\GnuWin32\lib" -lfl
+4. gcc lex.yy.c parser.tab.c -o parser
